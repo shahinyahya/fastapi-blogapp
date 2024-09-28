@@ -14,3 +14,9 @@ SessionLocal = sessionmaker(bind= engine, autocommit = False, autoflush = False)
 #** Create declarative base to declare ORM 
 Base = declarative_base()
 
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()

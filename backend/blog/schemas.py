@@ -26,7 +26,4 @@ class BlogUpdate(BaseModel):
     body: str
 
 class ShowBlog(Blog):
-    author: str
-    title: str
-    body: str
     creator: ShowUsers
