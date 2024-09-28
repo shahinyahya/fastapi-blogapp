@@ -12,3 +12,17 @@ class Blog(BaseModel):
 class BlogUpdate(BaseModel):
     title: str
     body: str
+
+class ShowBlog(Blog):
+    pass
+
+#** Schema for users
+
+class User(BaseModel):
+    username: str
+    email: str
+    password: str
+
+class ShowUsers(BaseModel):
+    username: str
+    email: str
