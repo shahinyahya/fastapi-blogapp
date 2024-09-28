@@ -1,11 +1,23 @@
 from pydantic import BaseModel
+from typing import List
 
+#** Schema for users
 
-#? Creating a blog
 class Blog(BaseModel):
     author: str
     title: str
     body: str
+
+class User(BaseModel):
+    username: str
+    email: str
+    password: str
+    
+
+class ShowUsers(BaseModel):
+    username: str
+    email: str
+    blogs: List[Blog] = []
 
 #** Update blog schema
 
@@ -14,15 +26,7 @@ class BlogUpdate(BaseModel):
     body: str
 
 class ShowBlog(Blog):
-    pass
-
-#** Schema for users
-
-class User(BaseModel):
-    username: str
-    email: str
-    password: str
-
-class ShowUsers(BaseModel):
-    username: str
-    email: str
+    author: str
+    title: str
+    body: str
+    creator: ShowUsers

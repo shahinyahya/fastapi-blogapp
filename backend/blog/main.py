@@ -31,7 +31,7 @@ def get_all_blogs(db: Session = Depends(get_db)):
 
 @app.post("/blog", status_code=status.HTTP_201_CREATED, tags = ["Blogs"])
 def create_blog(blog: Blog, db: Session = Depends(get_db)):   #! here db parameter is used to get db from it using depends
-    new_blog = models.Blog(author = blog.author, title = blog.title, body = blog.body) #? creating new blog requesting each request data to model
+    new_blog = models.Blog(author = blog.author, title = blog.title, body = blog.body, user_id = 1) #? creating new blog requesting each request data to model
     db.add(new_blog)
     db.commit()
     db.refresh(new_blog)
