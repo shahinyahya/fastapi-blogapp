@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 #** Schema for users
 
@@ -27,3 +27,16 @@ class BlogUpdate(BaseModel):
 
 class ShowBlog(Blog):
     creator: ShowUsers
+
+class Login(BaseModel):
+    username: str
+    password: str
+
+#! Create Schema for token and token required for JWT
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
